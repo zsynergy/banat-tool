@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tap WOW Game</title>
+
+  <!-- Script AdSense (CORECT) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2817417498813233"
+          crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:#0a0a12;
+      color:white;
+      text-align:center;
+      padding-top:40px;
+      margin:0;
+    }
+    #tapBtn {
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      font-size:28px;
+      font-weight:bold;
+      background:#4d4dff;
+      color:white;
+      border:none;
+      cursor:pointer;
+      margin-top:20px;
+    }
+    #tapBtn:active {
+      transform:scale(0.95);
+    }
+    .box {
+      margin-top:25px;
+      font-size:20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>⚡ Tap WOW Game</h1>
+<p>Apasă butonul cât mai repede și bate recordul!</p>
+
+<button id="tapBtn" onclick="tap()">TAP!</button>
+
+<div class="box">
+  <div>Scor: <span id="score">0</span></div>
+  <div>Record: <span id="best">0</span></div>
+</div>
+
+<!-- RECLAMA GOOGLE - se activează automat după aprobare -->
+<ins class="adsbygoogle"
+     style="display:block;margin-top:30px"
+     data-ad-client="ca-pub-2817417498813233"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<script>
+  let count = 0;
+  let best = localStorage.getItem("bestTap") || 0;
+
+  document.getElementById("best").innerText = best;
+
+  function tap(){
+    count++;
+    document.getElementById("score").innerText = count;
+
+    if(count > best){
+      best = count;
+      localStorage.setItem("bestTap", best);
+      document.getElementById("best").innerText = best;
+    }
+  }
+</script>
+
+</body>
+</html>
